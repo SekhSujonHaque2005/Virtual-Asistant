@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #000428, #004e92); /* Cool gradient background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    font-family: "Lora", serif;
+    position: relative;
+}
+
+/* Optional overlay effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: -1; /* Places it behind content */
+}
+
+/* Logo with animation */
+#logo {
+    width: 75%;
+    max-width: 600px; /* Makes sure it doesn't grow too large on wider screens */
+    animation: logoFadeIn 2s ease-in-out, float 4s ease-in-out infinite; /* Fade-in on load and floating effect */
+}
+
+/* Text Styling */
+h1 {
+    color: aliceblue;
+    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: font-size 0.5s ease, color 0.5s ease; /* Smooth text transitions */
+}
+
+h1:hover {
+    font-size: 3rem; /* Increase font size on hover */
+    color: lightblue;
+}
+
+/* Styled name with gradient text */
+#name {
+    background: linear-gradient(to right, rgb(35, 185, 239), rgb(0, 120, 255));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#va {
+    background: linear-gradient(to right, rgb(228, 15, 19), rgb(255, 75, 75));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#voice {
+    width: 150px;
+    display: none;
+}
+
+/* Button Styling */
+#btn {
+    width: 30%;
+    background: linear-gradient(to right, rgb(229, 25, 21), rgb(29, 73, 203));
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    color: white;
+    box-shadow: 2px 2px 10px rgba(229, 25, 21, 0.6), 2px 2px 10px rgba(29, 73, 203, 0.6);
+    border: none;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    line-height: 1.2; 
+}
+
+#btn:hover {
+    box-shadow: 0px 0px 30px 10px rgba(229, 25, 21, 0.8), 0px 0px 30px 10px rgba(29, 73, 203, 0.8);
+    transform: translateY(-5px); /* Adds a slight lift when hovered */
+    letter-spacing: 3px; /* Increases spacing for emphasis */
+}
+
+#btn:active {
+    transform: scale(0.98); /* Shrink button slightly when clicked */
+    animation: buttonPop 0.2s ease-out; /* Pop effect when clicked */
+}
+
+/* Keyframes for logo animation */
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Floating effect */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Button Pop Animation */
+@keyframes buttonPop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #logo {
+        width: 90%;
+    }
+
+    #btn {
+        width: 80%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #name, #va {
+        font-size: 2rem;
+    }
+
+    #btn {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+}
+/* Styling for the search bar */
+#search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 60%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+#searchBtn {
+    padding: 12px;
+    margin-left: 10px;
+    font-size: 1rem;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#searchBtn:hover {
+    background-color: #005bb5;
+}
+
+@media (max-width: 768px) {
+    #searchInput {
+        width: 80%;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #searchInput {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+}
